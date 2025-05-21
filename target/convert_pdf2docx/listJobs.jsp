@@ -39,9 +39,7 @@
             <td>
                 <c:choose>
                     <c:when test="${job.status == 'Completed'}">
-                        <a href="${job.docPath}">
-                            Tải xuống
-                        </a>
+                        <a href="${pageContext.request.contextPath}/${job.docPath}">Tải xuống</a>
                     </c:when>
                     <c:otherwise>
                         <i>Chưa có file</i>

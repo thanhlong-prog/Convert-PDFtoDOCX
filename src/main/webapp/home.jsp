@@ -24,11 +24,12 @@
 
     <c:if test="${not empty downloadLink}">
         <p>
-            <a href="${downloadLink}" download>
+            <a href="${pageContext.request.contextPath}/${downloadLink}">
                 <button type="button">Tải file DOCX</button>
             </a>
         </p>
     </c:if>
+
 
     <p>Đây là trang chính sau khi bạn đăng nhập thành công.</p>
 

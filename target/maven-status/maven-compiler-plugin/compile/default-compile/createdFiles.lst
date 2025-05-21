@@ -1,6 +1,7 @@
 Model\BEAN\ConvertJob.class
 Model\BEAN\User.class
 Model\BEAN\UserSessionInfo.class
+Controller\DownloadController.class
 Controller\RegisterController.class
 Model\DAO\ConvertJobDAO.class
 Controller\LogoutController.class

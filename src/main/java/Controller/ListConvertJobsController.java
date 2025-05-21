@@ -1,6 +1,7 @@
 package Controller;
 
 import java.io.IOException;
+import java.net.URLEncoder;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -15,7 +16,7 @@ import Model.BO.ConvertJobBO;
 
 @WebServlet("/listJobs")
 public class ListConvertJobsController extends HttpServlet {
-    private ConvertJobBO jobBO = new ConvertJobBO(); 
+    private ConvertJobBO jobBO = new ConvertJobBO();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -29,6 +30,12 @@ public class ListConvertJobsController extends HttpServlet {
         List<ConvertJob> jobs;
         try {
             jobs = jobBO.getUserJobs(userId);
+            for (ConvertJob job : jobs) {
+                if ("Completed".equals(job.getStatus())) {
+                    String encodedPath = URLEncoder.encode(job.getDocPath(), "UTF-8");
+                    job.setDocPath("download?path=" + encodedPath);
+                }
+            }
             req.setAttribute("jobs", jobs);
         } catch (Exception e) {
             throw new ServletException("Error to get List", e);

@@ -5,6 +5,7 @@ import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.Socket;
+import java.net.URLEncoder;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
@@ -56,8 +57,9 @@ public class ConvertJobController extends HttpServlet {
             String status = dis.readUTF();
             if ("SUCCESS".equals(status)) {
                 String docPath = dis.readUTF();
+                String encodedPath = URLEncoder.encode(docPath, "UTF-8");
                 req.setAttribute("message", "Chuyển đổi thành công!");
-                req.setAttribute("downloadLink", docPath);
+                req.setAttribute("downloadLink", "download?path=" + encodedPath);
             } else {
                 req.setAttribute("message", "Chuyển đổi thất bại!");
             }
