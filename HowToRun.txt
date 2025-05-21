@@ -1,0 +1,7 @@
+Đầu Tiên vào thư mục src/main/webapp/Database
+Lấy file database.sql để import vào MySQL
+mvn clean package để tạo file war
+Sau đó tạo Deployment trong Tomcat server (Community Server Connector)
+Sau đó Start Server Tomcat cổng 8080 convert_pdf2docx
+Bật Terminal gõ lệnh mvn compile exec:java để run Server
+GookLuck
