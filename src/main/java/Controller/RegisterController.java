@@ -8,8 +8,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import BO.UserBO;
-import Model.User;
+import Model.BEAN.User;
+import Model.BO.UserBO;
 
 @WebServlet("/register")
 public class RegisterController extends HttpServlet {

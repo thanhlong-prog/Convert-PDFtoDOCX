@@ -9,9 +9,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import BO.UserBO;
-import Model.User;
-import Model.UserSessionInfo;
+import Model.BEAN.User;
+import Model.BEAN.UserSessionInfo;
+import Model.BO.UserBO;
 
 @WebServlet("/login")
 public class LoginController extends HttpServlet{

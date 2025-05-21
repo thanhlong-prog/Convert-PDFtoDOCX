@@ -1,7 +1,7 @@
-package BO;
+package Model.BO;
 
-import DAO.UserDAO;
-import Model.User;
+import Model.BEAN.User;
+import Model.DAO.UserDAO;
 
 public class UserBO {
     public boolean register(User user) {

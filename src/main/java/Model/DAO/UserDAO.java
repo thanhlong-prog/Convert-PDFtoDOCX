@@ -1,10 +1,10 @@
-package DAO;
+package Model.DAO;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
-import Model.User;
+import Model.BEAN.User;
 
 public class UserDAO {
     public static User findByUsername(String username) {
