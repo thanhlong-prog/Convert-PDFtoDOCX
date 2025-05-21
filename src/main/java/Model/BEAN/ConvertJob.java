@@ -7,6 +7,9 @@ public class ConvertJob {
     private String docPath;
     private String status;
 
+    public ConvertJob() {
+    }
+
     public ConvertJob(int id, int userId, String pdfPath, String docPath, String status) {
         this.id = id;
         this.userId = userId;

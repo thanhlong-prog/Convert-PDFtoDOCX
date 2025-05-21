@@ -20,11 +20,12 @@
 
     <p>Đây là trang chính sau khi bạn đăng nhập thành công.</p>
 
-    <form action="upload" method="post" enctype="multipart/form-data">
-        <label>Chọn tệp PDF:</label>
-        <input type="file" name="pdfFile" accept="application/pdf" required>
-        <button type="submit">Tải lên</button>
+    <form action="convert" method="post" enctype="multipart/form-data">
+        <label>Chọn file PDF:</label>
+        <input type="file" name="pdfFile" accept=".pdf" required />
+        <button type="submit">Chuyển đổi</button>
     </form>
+
 
     <form action="logout" method="post">
         <button type="submit">Đăng xuất</button>
