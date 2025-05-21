@@ -1,9 +1,9 @@
-DAO\DB.class
-BO\UserBO.class
-Model\User.class
+Model\BEAN\ConvertJob.class
+Model\BEAN\User.class
+Model\BEAN\UserSessionInfo.class
 Controller\RegisterController.class
-Model\UserSessionInfo.class
 Controller\LogoutController.class
 Controller\LoginController.class
-Model\ConvertJob.class
-DAO\UserDAO.class
+Model\DAO\DB.class
+Model\BO\UserBO.class
+Model\DAO\UserDAO.class

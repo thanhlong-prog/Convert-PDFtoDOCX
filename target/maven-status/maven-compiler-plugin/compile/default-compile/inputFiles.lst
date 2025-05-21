@@ -1,9 +1,9 @@
-D:\java_project\convert_pdf2docx\src\main\java\Model\User.java
-D:\java_project\convert_pdf2docx\src\main\java\Model\ConvertJob.java
-D:\java_project\convert_pdf2docx\src\main\java\Model\UserSessionInfo.java
+D:\java_project\convert_pdf2docx\src\main\java\Model\BO\UserBO.java
+D:\java_project\convert_pdf2docx\src\main\java\Model\DAO\DB.java
+D:\java_project\convert_pdf2docx\src\main\java\Model\DAO\UserDAO.java
+D:\java_project\convert_pdf2docx\src\main\java\Model\BEAN\ConvertJob.java
 D:\java_project\convert_pdf2docx\src\main\java\Controller\LoginController.java
-D:\java_project\convert_pdf2docx\src\main\java\DAO\DB.java
+D:\java_project\convert_pdf2docx\src\main\java\Model\BEAN\UserSessionInfo.java
+D:\java_project\convert_pdf2docx\src\main\java\Model\BEAN\User.java
 D:\java_project\convert_pdf2docx\src\main\java\Controller\RegisterController.java
 D:\java_project\convert_pdf2docx\src\main\java\Controller\LogoutController.java
-D:\java_project\convert_pdf2docx\src\main\java\BO\UserBO.java
-D:\java_project\convert_pdf2docx\src\main\java\DAO\UserDAO.java
