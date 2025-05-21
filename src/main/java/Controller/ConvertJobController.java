@@ -33,9 +33,9 @@ public class ConvertJobController extends HttpServlet {
         String fileName = filePart.getSubmittedFileName();
 
         try (Socket socket = new Socket("localhost", 5555);
-             DataOutputStream dos = new DataOutputStream(socket.getOutputStream());
-             DataInputStream dis = new DataInputStream(socket.getInputStream());
-             InputStream fileInputStream = filePart.getInputStream()) {
+                DataOutputStream dos = new DataOutputStream(socket.getOutputStream());
+                DataInputStream dis = new DataInputStream(socket.getInputStream());
+                InputStream fileInputStream = filePart.getInputStream()) {
 
             dos.writeInt(user.getId());
 
@@ -53,10 +53,19 @@ public class ConvertJobController extends HttpServlet {
 
             int jobId = dis.readInt();
 
-            req.setAttribute("message", "Đã tạo job chuyển đổi! Mã job: " + jobId);
+            String status = dis.readUTF();
+            if ("SUCCESS".equals(status)) {
+                String docPath = dis.readUTF();
+                req.setAttribute("message", "Chuyển đổi thành công!");
+                req.setAttribute("downloadLink", docPath);
+            } else {
+                req.setAttribute("message", "Chuyển đổi thất bại!");
+            }
             req.getRequestDispatcher("home.jsp").forward(req, resp);
 
         } catch (Exception e) {
+            req.setAttribute("message", "Server đang lỏ. Vui lòng thử lại sau!");
+            req.getRequestDispatcher("home.jsp").forward(req, resp);
             throw new ServletException("Error connected ConvertServer", e);
         }
     }

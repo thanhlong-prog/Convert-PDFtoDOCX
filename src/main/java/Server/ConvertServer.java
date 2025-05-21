@@ -36,7 +36,7 @@ public class ConvertServer {
 
     private void handleClient(Socket socket) {
         try (DataInputStream dis = new DataInputStream(socket.getInputStream());
-             DataOutputStream dos = new DataOutputStream(socket.getOutputStream())) {
+                DataOutputStream dos = new DataOutputStream(socket.getOutputStream())) {
 
             int userId = dis.readInt();
 
@@ -44,15 +44,18 @@ public class ConvertServer {
 
             long fileSize = dis.readLong();
 
-            File tempDir = new File("uploads");
-            if (!tempDir.exists()) tempDir.mkdirs();
-            File pdfFile = new File(tempDir, fileName);
+            File baseDir = new File("converted");
+            File userDir = new File(baseDir, String.valueOf(userId));
+            if (!userDir.exists()) {
+                userDir.mkdirs();
+            }
+            File pdfFile = new File(userDir, fileName);
 
             try (FileOutputStream fos = new FileOutputStream(pdfFile)) {
                 byte[] buffer = new byte[4096];
                 long remaining = fileSize;
                 int read;
-                while (remaining > 0 && (read = dis.read(buffer, 0, (int)Math.min(buffer.length, remaining))) != -1) {
+                while (remaining > 0 && (read = dis.read(buffer, 0, (int) Math.min(buffer.length, remaining))) != -1) {
                     fos.write(buffer, 0, read);
                     remaining -= read;
                 }
@@ -69,21 +72,28 @@ public class ConvertServer {
 
             try {
                 PdfConvertionHelper.convertPdfToDoc(pdfFile.getAbsolutePath());
-
                 String docPath = pdfFile.getAbsolutePath().replace(".pdf", ".docx");
+
                 jobBO.updateJobStatus(jobId, "Completed", docPath);
+                dos.writeUTF("SUCCESS");
+                dos.writeUTF(docPath);
+                dos.flush();
 
                 System.out.println("Job id=" + jobId + " completed.");
             } catch (Exception e) {
                 jobBO.updateJobStatus(jobId, "Failed", null);
                 System.out.println("Job id=" + jobId + " failed.");
+                dos.writeUTF("FAILED");
                 e.printStackTrace();
             }
 
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            try { socket.close(); } catch (IOException ignored) {}
+            try {
+                socket.close();
+            } catch (IOException ignored) {
+            }
         }
     }
 }

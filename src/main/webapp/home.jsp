@@ -18,6 +18,18 @@
 <body>
     <h2>Chào mừng, <c:out value="${user.username}"/></h2>
 
+    <c:if test="${not empty message}">
+        <p style="color: green;"><c:out value="${message}"/></p>
+    </c:if>
+
+    <c:if test="${not empty downloadLink}">
+        <p>
+            <a href="${downloadLink}" download>
+                <button type="button">Tải file DOCX</button>
+            </a>
+        </p>
+    </c:if>
+
     <p>Đây là trang chính sau khi bạn đăng nhập thành công.</p>
 
     <form action="convert" method="post" enctype="multipart/form-data">
@@ -26,9 +38,10 @@
         <button type="submit">Chuyển đổi</button>
     </form>
 
-
     <form action="logout" method="post">
         <button type="submit">Đăng xuất</button>
     </form>
+    <p><a href="listJobs">Xem danh sách file đã chuyển đổi</a></p>
+
 </body>
 </html>

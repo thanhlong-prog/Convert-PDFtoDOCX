@@ -11,6 +11,7 @@ Model\BO\CombineDocx.class
 Model\BO\ConvertJobBO.class
 Server\ConvertServer.class
 Model\BO\PdfConvertionHelper.class
+Controller\ListConvertJobsController.class
 Controller\LoginController.class
 Model\BO\UserBO.class
 Model\DAO\UserDAO.class
