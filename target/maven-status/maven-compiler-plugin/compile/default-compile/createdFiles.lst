@@ -9,6 +9,7 @@ Controller\LogoutController.class
 Controller\ConvertJobController.class
 Utils\Utils.class
 Model\DAO\DB.class
+Controller\updateFullnameController.class
 Model\BO\CombineDocx.class
 Model\BO\ConvertJobBO.class
 Controller\UserController.class

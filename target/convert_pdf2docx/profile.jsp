@@ -16,6 +16,12 @@
     <h2>Thông tin cá nhân</h2>
     <p><b>Username:</b> ${user.username}</p>
     <p><b>Fullname:</b> ${user.fullname}</p>
+    <h3>Đổi tên hiển thị</h3>
+    <form action="changeFullname" method="post">
+        <label for="newFullname">Tên mới:</label>
+        <input type="text" id="newFullname" name="newFullname" required>
+        <button type="submit">Cập nhật</button>
+    </form>
 
     <h3>Số PDF đã convert: ${convertCount}</h3>
      <p><a href="listJobs">Xem danh sách file đã chuyển đổi</a></p>

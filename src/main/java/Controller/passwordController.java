@@ -13,7 +13,6 @@ import Model.BO.UserBO;
 
 @WebServlet("/password")
 public class passwordController extends HttpServlet{
-    
     UserBO userBO = new UserBO();
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
