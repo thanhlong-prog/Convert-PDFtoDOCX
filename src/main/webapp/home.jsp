@@ -63,7 +63,7 @@
                             <i class='bx  bx-folder-open'></i>
                             <span>Chọn file PDF</span>
                         </label>
-                        <span class="file-name">Chưa chọn file</span>
+                        <span class="file-name"></span>
                         <input type="file" id="pdf-upload" name="pdfFile" accept=".pdf">
                     </div>
                     <button class="btn-submit" type="submit"><i class='bx bx-right-arrow-alt'></i> </button>
@@ -73,6 +73,7 @@
         </div>
     </div>
     <script src="./js/header.js"></script>
+    <script src="./js/home.js"></script>
 </body>
 
 </html>

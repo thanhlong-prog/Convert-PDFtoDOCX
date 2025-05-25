@@ -1,0 +1,101 @@
+.w-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px;
+    margin-top: 50px;
+}
+
+.page-info {
+    justify-content: center;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    padding: 30px 40px;
+    border-radius: 10px;
+}
+
+.page-profile {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 15px;
+}
+
+.info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+.full-name .edit-name{
+    margin-left: 10px;
+}
+.tl {
+    min-width: 110px;
+    font-weight: 600;
+}
+
+.info input {
+    width: 200px;
+    height: 30px;
+    padding: 8px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    outline: none;
+    margin: 0;
+}
+h2 {
+    text-align: center;
+    color: #007bff;
+    margin-bottom: 40px;
+}
+
+.page-profile button {
+    padding: 5px 20px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    white-space: nowrap;
+}
+
+.profile-container {
+    background: white;
+    max-width: 500px;
+    margin: auto;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.page-profile form{
+    margin: 0;
+    display: none;
+}
+.change-name-form .cancel-update{
+    background-color: #e75656;
+}
+a {
+    color: #007bff;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    margin: 6px 0;
+}
+
+a i {
+    margin-right: 6px;
+}
+
+.success {
+    color: green;
+    margin-top: 10px;
+}
+
+.error {
+    color: red;
+    margin-top: 10px;
+}

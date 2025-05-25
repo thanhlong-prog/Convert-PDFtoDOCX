@@ -1,14 +1,16 @@
-<<<<<<< HEAD
+C:\LTM-CK\Convert-PDFtoDOCX\src\main\java\Controller\HomeController.java
 C:\LTM-CK\Convert-PDFtoDOCX\src\main\java\Model\BEAN\UserSessionInfo.java
 C:\LTM-CK\Convert-PDFtoDOCX\src\main\java\Utils\Utils.java
 C:\LTM-CK\Convert-PDFtoDOCX\src\main\java\Model\BO\UserBO.java
 C:\LTM-CK\Convert-PDFtoDOCX\src\main\java\Model\DAO\DB.java
 C:\LTM-CK\Convert-PDFtoDOCX\src\main\java\Model\DAO\ConvertJobDAO.java
 C:\LTM-CK\Convert-PDFtoDOCX\src\main\java\Controller\RegisterController.java
+C:\LTM-CK\Convert-PDFtoDOCX\src\main\java\Controller\updateFullnameController.java
 C:\LTM-CK\Convert-PDFtoDOCX\src\main\java\Model\DAO\UserDAO.java
 C:\LTM-CK\Convert-PDFtoDOCX\src\main\java\Model\BO\CombineDocx.java
 C:\LTM-CK\Convert-PDFtoDOCX\src\main\java\Model\BEAN\ConvertJob.java
 C:\LTM-CK\Convert-PDFtoDOCX\src\main\java\Controller\LoginController.java
+C:\LTM-CK\Convert-PDFtoDOCX\src\main\java\Controller\passwordController.java
 C:\LTM-CK\Convert-PDFtoDOCX\src\main\java\Model\BO\ConvertJobBO.java
 C:\LTM-CK\Convert-PDFtoDOCX\src\main\java\Controller\ConvertJobController.java
 C:\LTM-CK\Convert-PDFtoDOCX\src\main\java\Server\ConvertServer.java
@@ -18,27 +20,3 @@ C:\LTM-CK\Convert-PDFtoDOCX\src\main\java\Controller\ListConvertJobsController.j
 C:\LTM-CK\Convert-PDFtoDOCX\src\main\java\Controller\LogoutController.java
 C:\LTM-CK\Convert-PDFtoDOCX\src\main\java\Controller\DownloadController.java
 C:\LTM-CK\Convert-PDFtoDOCX\src\main\java\Model\BEAN\User.java
-=======
-D:\java_project\convert_pdf2docx\src\main\java\Model\BO\ConvertJobBO.java
-D:\java_project\convert_pdf2docx\src\main\java\Model\BO\PdfConvertionHelper.java
-D:\java_project\convert_pdf2docx\src\main\java\Model\DAO\ConvertJobDAO.java
-D:\java_project\convert_pdf2docx\src\main\java\Controller\DownloadController.java
-D:\java_project\convert_pdf2docx\src\main\java\Model\BEAN\ConvertJob.java
-D:\java_project\convert_pdf2docx\src\main\java\Controller\passwordController.java
-D:\java_project\convert_pdf2docx\src\main\java\Controller\UserController.java
-D:\java_project\convert_pdf2docx\src\main\java\Model\BEAN\UserSessionInfo.java
-D:\java_project\convert_pdf2docx\src\main\java\Controller\ListConvertJobsController.java
-D:\java_project\convert_pdf2docx\src\main\java\Controller\RegisterController.java
-D:\java_project\convert_pdf2docx\src\main\java\Controller\ConvertJobController.java
-D:\java_project\convert_pdf2docx\src\main\java\Model\BO\UserBO.java
-D:\java_project\convert_pdf2docx\src\main\java\Model\DAO\DB.java
-D:\java_project\convert_pdf2docx\src\main\java\Model\DAO\UserDAO.java
-D:\java_project\convert_pdf2docx\src\main\java\Utils\Utils.java
-D:\java_project\convert_pdf2docx\src\main\java\Controller\LoginController.java
-D:\java_project\convert_pdf2docx\src\main\java\Model\BEAN\User.java
-D:\java_project\convert_pdf2docx\src\main\java\Controller\HomeController.java
-D:\java_project\convert_pdf2docx\src\main\java\Model\BO\CombineDocx.java
-D:\java_project\convert_pdf2docx\src\main\java\Controller\LogoutController.java
-D:\java_project\convert_pdf2docx\src\main\java\Controller\updateFullnameController.java
-D:\java_project\convert_pdf2docx\src\main\java\Server\ConvertServer.java
->>>>>>> 56ad8edebfd3d65b04e324c0f84b15f4bc7e9799
