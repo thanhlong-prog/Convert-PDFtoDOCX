@@ -3,6 +3,7 @@ package Model.BEAN;
 public class ConvertJob {
     private int id;
     private int userId;
+    private String title;
     private String pdfPath;
     private String docPath;
     private String status;
@@ -10,12 +11,13 @@ public class ConvertJob {
     public ConvertJob() {
     }
 
-    public ConvertJob(int id, int userId, String pdfPath, String docPath, String status) {
+    public ConvertJob(int id, int userId, String pdfPath, String docPath, String status, String title) {
         this.id = id;
         this.userId = userId;
         this.pdfPath = pdfPath;
         this.docPath = docPath;
         this.status = status;
+        this.title = title;
     }
 
     public int getId() {
@@ -56,5 +58,13 @@ public class ConvertJob {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 }
