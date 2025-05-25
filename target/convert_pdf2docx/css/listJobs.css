@@ -85,3 +85,8 @@
     color: orange;
     font-weight: bold;
 }
+
+.page-list-content .status-processing {
+    color: #64b5f6;
+    font-weight: bold;
+}

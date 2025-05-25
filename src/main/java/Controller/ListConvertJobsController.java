@@ -42,6 +42,9 @@ public class ListConvertJobsController extends HttpServlet {
                 if("Pending".equals(job.getStatus())) {
                     job.setStatus("Đang chờ xử lý");
                 }
+                if("Processing".equals(job.getStatus())) {
+                    job.setStatus("Đang xử lý");
+                }
             }
             req.setAttribute("jobs", jobs);
         } catch (Exception e) {

@@ -1,10 +1,9 @@
 package Controller;
 
-import java.io.DataInputStream;
-import java.io.DataOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.net.Socket;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
@@ -15,11 +14,16 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.servlet.http.Part;
 
+import Model.BEAN.ConvertJob;
 import Model.BEAN.UserSessionInfo;
+import Model.BO.ConvertJobBO;
+import Server.JobQueue;
 
 @WebServlet("/convert")
 @MultipartConfig
 public class ConvertJobController extends HttpServlet {
+    private final ConvertJobBO jobBO = new ConvertJobBO();
+
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
@@ -33,35 +37,43 @@ public class ConvertJobController extends HttpServlet {
         Part filePart = req.getPart("pdfFile");
         String fileName = filePart.getSubmittedFileName();
 
-        try (Socket socket = new Socket("localhost", 5555);
-                DataOutputStream dos = new DataOutputStream(socket.getOutputStream());
-                DataInputStream dis = new DataInputStream(socket.getInputStream());
-                InputStream fileInputStream = filePart.getInputStream()) {
-
-            dos.writeInt(user.getId());
-
-            dos.writeUTF(fileName);
-
-            long fileSize = filePart.getSize();
-            dos.writeLong(fileSize);
-
+        File baseDir = new File("d://converted");
+        File userDir = new File(baseDir, String.valueOf(user.getId()));
+        if (!userDir.exists()) {
+            userDir.mkdirs();
+        }
+        File savedFile = new File(userDir, fileName);
+        try (
+                InputStream input = filePart.getInputStream();
+                FileOutputStream fos = new FileOutputStream(savedFile)) {
             byte[] buffer = new byte[4096];
-            int read;
-            while ((read = fileInputStream.read(buffer)) != -1) {
-                dos.write(buffer, 0, read);
+            int bytesRead;
+            while ((bytesRead = input.read(buffer)) != -1) {
+                fos.write(buffer, 0, bytesRead);
             }
-            dos.flush();
-            String status = dis.readUTF(); 
-            if(status.equals("Pending")) {
-                resp.sendRedirect("listJobs");
-            } else {
-                req.setAttribute("message", "Server không hoạt động!");
-                req.getRequestDispatcher("home.jsp").forward(req, resp);
+        }
+
+        ConvertJob job = new ConvertJob();
+        job.setUserId(user.getId());
+        job.setTitle(fileName);
+        job.setPdfPath(savedFile.getAbsolutePath());
+        job.setStatus("Pending");
+        int jobId;
+        try {
+            jobId = jobBO.addJob(job);
+            String newFileName = fileName.replaceAll("(?i)\\.pdf$", "") + "_" + jobId + ".pdf";
+            File renamedPdfFile = new File(userDir, newFileName);
+            boolean renamed = savedFile.renameTo(renamedPdfFile);
+            if (!renamed) {
+                System.err.println("Không thể đổi tên file PDF.");
             }
-        } catch (Exception e) {
-            req.setAttribute("message", "Server đang lỏ. Vui lòng thử lại sau!");
-            req.getRequestDispatcher("home.jsp").forward(req, resp);
-            throw new ServletException("Error connected ConvertServer", e);
+            job.setPdfPath(renamedPdfFile.getAbsolutePath());
+            jobBO.updatePdfPath(jobId, renamedPdfFile.getAbsolutePath());
+            JobQueue.addJob(job);
+            resp.sendRedirect("listJobs");
+        } catch (Exception ex) {
+            req.setAttribute("error", "Không xử lý được file PDF đã gửi. Vui lòng thử lại sau.");
+            req.getRequestDispatcher("home").forward(req, resp);
         }
     }
 }

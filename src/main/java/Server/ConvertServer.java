@@ -3,6 +3,7 @@ package Server;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.ServerSocket;
@@ -10,21 +11,23 @@ import java.net.Socket;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import Model.BEAN.ConvertJob;
-import Model.BO.ConvertJobBO;
 import Model.BO.PdfConvertionHelper;
 import Model.DAO.ConvertJobDAO;
+import Utils.Utils;
 
 public class ConvertServer {
     private static final int PORT = 5555;
-    private final ConvertJobBO jobBO = new ConvertJobBO();
     private static final Logger logger = Logger.getLogger(ConvertJobDAO.class.getName());
+    private Thread workerThread;
 
     public static void main(String[] args) {
         new ConvertServer().start();
     }
 
     public void start() {
+        JobWorker worker = new JobWorker();
+        workerThread = new Thread(worker);
+        workerThread.start();
         try (ServerSocket serverSocket = new ServerSocket(PORT)) {
             System.out.println("ConvertServer is running on port " + PORT);
 
@@ -49,7 +52,7 @@ public class ConvertServer {
 
             long fileSize = dis.readLong();
 
-            File baseDir = new File("converted");
+            File baseDir = new File("handleFiles");
             File userDir = new File(baseDir, String.valueOf(userId));
             if (!userDir.exists()) {
                 userDir.mkdirs();
@@ -66,39 +69,30 @@ public class ConvertServer {
                 }
             }
 
-            ConvertJob job = new ConvertJob();
-            job.setUserId(userId);
-            job.setTitle(fileName);
-            job.setPdfPath(pdfFile.getAbsolutePath());
-            job.setStatus("Pending");
-            int jobId = jobBO.addJob(job);
-
-            // dos.writeInt(jobId);
-            // dos.flush();
-
-            String newFileName = fileName.replaceAll("(?i)\\.pdf$", "") + "_" + jobId + ".pdf";
-            File renamedPdfFile = new File(userDir, newFileName);
-            boolean renamed = pdfFile.renameTo(renamedPdfFile);
-            if (!renamed) {
-                System.err.println("Can not rename file PDF!");
-            }
-            job.setPdfPath(renamedPdfFile.getAbsolutePath());
-            jobBO.updatePdfPath(jobId, renamedPdfFile.getAbsolutePath());
-            pdfFile = new File(userDir, newFileName);
-            String status = "Pending";
-            dos.writeUTF(status);
-            dos.flush();
             try {
                 PdfConvertionHelper.convertPdfToDoc(pdfFile.getAbsolutePath());
                 String docPath = pdfFile.getAbsolutePath().replace(".pdf", ".docx");
+                dos.writeUTF("Completed");
+                dos.flush();
 
-                jobBO.updateJobStatus(jobId, "Completed", docPath);
+                File fileToSend = new File(docPath);
+                try (FileInputStream fis = new FileInputStream(fileToSend)) {
+                    dos.writeLong(fileToSend.length());
+                    dos.flush();
 
-                System.out.println("Job id=" + jobId + " completed.");
+                    byte[] buffer = new byte[4096];
+                    int read;
+                    while ((read = fis.read(buffer)) != -1) {
+                        dos.write(buffer, 0, read);
+                    }
+                    dos.flush();
+                }
+                Utils.deleteFile(docPath);
+                Utils.deleteFile(pdfFile.getAbsolutePath());
             } catch (Exception e) {
-                jobBO.updateJobStatus(jobId, "Failed", null);
-                System.out.println("Job id=" + jobId + " failed.");
-
+                dos.writeUTF("Failed");
+                dos.flush();
+                Utils.deleteFile(pdfFile.getAbsolutePath());
             }
 
         } catch (Exception e) {

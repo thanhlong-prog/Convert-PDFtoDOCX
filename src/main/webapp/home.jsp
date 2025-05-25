@@ -55,6 +55,9 @@
                     <c:out value="${message}" />
                 </p>
             </c:if>
+            <c:if test="${not empty error}">
+                <p style="color:red">${error}</p>
+            </c:if>
             <span class="title">Chuyển PDF sang Word</span>
             <div class="home">
                 <form action="convert" method="post" enctype="multipart/form-data">

@@ -19,7 +19,7 @@
   <div class="header">
     <div class="header-home">
       <i class='bx  bx-home'></i>
-      <a href="/home">
+      <a href="home">
         <span>Trang chủ</span>
       </a>
     </div>
@@ -63,7 +63,7 @@
               <c:out value="${job.title}" />
             </td>
             <td
-              class="${job.status == 'Hoàn thành' ? 'status-completed' : job.status == 'Thất bại' ? 'status-failed' : 'status-pending'}">
+              class="${job.status == 'Hoàn thành' ? 'status-completed' : job.status == 'Thất bại' ? 'status-failed' : job.status == 'Đang xử lý' ? 'status-processing' : 'status-pending'}">
               <c:out value="${job.status}" />
             </td>
             <td>
