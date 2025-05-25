@@ -3,6 +3,7 @@ D:\java_project\convert_pdf2docx\src\main\java\Model\BO\PdfConvertionHelper.java
 D:\java_project\convert_pdf2docx\src\main\java\Model\DAO\ConvertJobDAO.java
 D:\java_project\convert_pdf2docx\src\main\java\Controller\DownloadController.java
 D:\java_project\convert_pdf2docx\src\main\java\Model\BEAN\ConvertJob.java
+D:\java_project\convert_pdf2docx\src\main\java\Controller\passwordController.java
 D:\java_project\convert_pdf2docx\src\main\java\Controller\UserController.java
 D:\java_project\convert_pdf2docx\src\main\java\Model\BEAN\UserSessionInfo.java
 D:\java_project\convert_pdf2docx\src\main\java\Controller\ListConvertJobsController.java

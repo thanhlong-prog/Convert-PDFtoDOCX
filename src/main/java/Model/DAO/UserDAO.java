@@ -50,4 +50,28 @@ public class UserDAO {
         }
         return false;
     }
+
+    public static boolean updatePassword(int userId, String newPassword) {
+        try (Connection conn = DB.getConnection()) {
+            PreparedStatement stmt = conn.prepareStatement("UPDATE users SET password = ? WHERE id = ?");
+            stmt.setString(1, newPassword);
+            stmt.setInt(2, userId);
+            return stmt.executeUpdate() > 0;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    public static boolean updateFullname(int userId, String newFullname) {
+        try (Connection conn = DB.getConnection()) {
+            PreparedStatement stmt = conn.prepareStatement("UPDATE users SET fullname = ? WHERE id = ?");
+            stmt.setString(1, newFullname);
+            stmt.setInt(2, userId);
+            return stmt.executeUpdate() > 0;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
 }

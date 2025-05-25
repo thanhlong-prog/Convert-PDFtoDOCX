@@ -22,4 +22,12 @@ public class UserBO {
     public User getUserById(int id) {
         return UserDAO.findById(id);
     }
+
+    public boolean updatePassword(int userId, String newPassword) {
+        return UserDAO.updatePassword(userId, newPassword);
+    }
+
+    public boolean updateFullname(int userId, String newFullname) {
+        return UserDAO.updateFullname(userId, newFullname);
+    }
 }
