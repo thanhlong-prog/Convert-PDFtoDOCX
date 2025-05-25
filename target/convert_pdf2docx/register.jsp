@@ -37,6 +37,6 @@
         <button type="submit">Đăng ký</button>
     </form>
 
-    <p>Đã có tài khoản? <a href="login.jsp">Đăng nhập</a></p>
+    <p>Đã có tài khoản? <a href="login">Đăng nhập</a></p>
 </body>
 </html>

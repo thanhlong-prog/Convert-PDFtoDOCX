@@ -14,10 +14,11 @@ import javax.servlet.http.HttpServletResponse;
 
 @WebServlet("/download")
 public class DownloadController extends HttpServlet {
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        String encodedPath = request.getParameter("path");
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+        String encodedPath = req.getParameter("path");
         if (encodedPath == null || encodedPath.isEmpty()) {
-            response.sendError(HttpServletResponse.SC_BAD_REQUEST, "Thiếu đường dẫn file");
+            resp.sendError(HttpServletResponse.SC_BAD_REQUEST, "Thiếu đường dẫn file");
             return;
         }
 
@@ -25,15 +26,15 @@ public class DownloadController extends HttpServlet {
         File file = new File(filePath);
 
         if (!file.exists() || file.isDirectory()) {
-            response.sendError(HttpServletResponse.SC_NOT_FOUND, "Không tìm thấy file");
+            resp.sendError(HttpServletResponse.SC_NOT_FOUND, "Không tìm thấy file");
             return;
         }
 
-        response.setContentType("application/vnd.openxmlformats-officedocument.wordprocessingml.document");
-        response.setHeader("Content-Disposition", "attachment; filename=\"" + file.getName() + "\"");
+        resp.setContentType("application/vnd.openxmlformats-officedocument.wordprocessingml.document");
+        resp.setHeader("Content-Disposition", "attachment; filename=\"" + file.getName() + "\"");
 
         try (BufferedInputStream in = new BufferedInputStream(new FileInputStream(file));
-             BufferedOutputStream out = new BufferedOutputStream(response.getOutputStream())) {
+             BufferedOutputStream out = new BufferedOutputStream(resp.getOutputStream())) {
 
             byte[] buffer = new byte[4096];
             int length;

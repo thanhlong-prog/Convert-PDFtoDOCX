@@ -22,6 +22,7 @@
 </head>
 
 <body>
+<<<<<<< HEAD
     <div class="header">
         <div class="header-home">
             <i class='bx  bx-home'></i>
@@ -49,6 +50,34 @@
             <!-- <h2>Chào mừng,
                     <c:out value="${user.username}" />
                 </h2> -->
+=======
+    <h2>Chào mừng, <c:out value="${user.fullname}"/></h2>
+
+    <c:if test="${not empty message}">
+        <p style="color: green;"><c:out value="${message}"/></p>
+    </c:if>
+
+    <%-- <c:if test="${not empty downloadLink}">
+        <p>
+            <a href="${pageContext.request.contextPath}/${downloadLink}">
+                <button type="button">Tải file DOCX</button>
+            </a>
+        </p>
+    </c:if> --%>
+
+    <p>Đây là trang chính sau khi bạn đăng nhập thành công.</p>
+
+    <form action="convert" method="post" enctype="multipart/form-data">
+        <label>Chọn file PDF:</label>
+        <input type="file" name="pdfFile" accept=".pdf" required />
+        <button type="submit">Chuyển đổi</button>
+    </form>
+
+    <form action="logout" method="post">
+        <button type="submit">Đăng xuất</button>
+    </form>
+    <p><a href="listJobs">Xem danh sách file đã chuyển đổi</a></p>
+>>>>>>> 56ad8edebfd3d65b04e324c0f84b15f4bc7e9799
 
             <c:if test="${not empty message}">
                 <p style="color: green;">

@@ -51,6 +51,6 @@
     </tbody>
 </table>
 
-<p><a href="home.jsp">Quay về trang chủ</a></p>
+<p><a href="home">Quay về trang chủ</a></p>
 </body>
 </html>

@@ -27,6 +27,6 @@
         <button type="submit">Đăng nhập</button>
     </form>
 
-    <p>Chưa có tài khoản? <a href="register.jsp">Đăng ký ngay</a></p>
+    <p>Chưa có tài khoản? <a href="register">Đăng ký ngay</a></p>
 </body>
 </html>

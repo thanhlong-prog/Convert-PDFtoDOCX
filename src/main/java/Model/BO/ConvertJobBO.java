@@ -6,7 +6,7 @@ import Model.BEAN.ConvertJob;
 import Model.DAO.ConvertJobDAO;
 
 public class ConvertJobBO {
-    private ConvertJobDAO dao = new ConvertJobDAO();
+    private final ConvertJobDAO dao = new ConvertJobDAO();
 
     public int addJob(ConvertJob job) throws Exception {
         job.setStatus("Pending");

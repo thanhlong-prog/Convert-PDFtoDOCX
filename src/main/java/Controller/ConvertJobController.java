@@ -5,7 +5,6 @@ import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.Socket;
-import java.net.URLEncoder;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
@@ -21,6 +20,7 @@ import Model.BEAN.UserSessionInfo;
 @WebServlet("/convert")
 @MultipartConfig
 public class ConvertJobController extends HttpServlet {
+    @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
         UserSessionInfo user = (UserSessionInfo) session.getAttribute("user");
@@ -51,7 +51,13 @@ public class ConvertJobController extends HttpServlet {
                 dos.write(buffer, 0, read);
             }
             dos.flush();
-            resp.sendRedirect("listJobs");
+            String status = dis.readUTF(); 
+            if(status.equals("Pending")) {
+                resp.sendRedirect("listJobs");
+            } else {
+                req.setAttribute("message", "Server không hoạt động!");
+                req.getRequestDispatcher("home.jsp").forward(req, resp);
+            }
         } catch (Exception e) {
             req.setAttribute("message", "Server đang lỏ. Vui lòng thử lại sau!");
             req.getRequestDispatcher("home.jsp").forward(req, resp);

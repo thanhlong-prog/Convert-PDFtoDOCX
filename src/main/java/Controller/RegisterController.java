@@ -13,7 +13,7 @@ import Model.BO.UserBO;
 
 @WebServlet("/register")
 public class RegisterController extends HttpServlet {
-    private UserBO userBO = new UserBO();
+    private final UserBO userBO = new UserBO();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -44,7 +44,7 @@ public class RegisterController extends HttpServlet {
         boolean success = userBO.register(newUser);
 
         if (success) {
-            resp.sendRedirect("login.jsp");
+            resp.sendRedirect("login");
         } else {
             req.setAttribute("error", "Tên đăng nhập đã tồn tại.");
             req.getRequestDispatcher("register.jsp").forward(req, resp);
