@@ -16,7 +16,7 @@
     <title>Trang chủ</title>
 </head>
 <body>
-    <h2>Chào mừng, <c:out value="${user.username}"/></h2>
+    <h2>Chào mừng, <c:out value="${user.fullname}"/></h2>
 
     <c:if test="${not empty message}">
         <p style="color: green;"><c:out value="${message}"/></p>

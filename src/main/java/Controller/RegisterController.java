@@ -44,7 +44,7 @@ public class RegisterController extends HttpServlet {
         boolean success = userBO.register(newUser);
 
         if (success) {
-            resp.sendRedirect("login.jsp");
+            resp.sendRedirect("login");
         } else {
             req.setAttribute("error", "Tên đăng nhập đã tồn tại.");
             req.getRequestDispatcher("register.jsp").forward(req, resp);

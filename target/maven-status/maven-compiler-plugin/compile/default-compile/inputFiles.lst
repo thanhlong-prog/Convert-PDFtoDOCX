@@ -15,6 +15,7 @@ D:\java_project\convert_pdf2docx\src\main\java\Model\DAO\UserDAO.java
 D:\java_project\convert_pdf2docx\src\main\java\Utils\Utils.java
 D:\java_project\convert_pdf2docx\src\main\java\Controller\LoginController.java
 D:\java_project\convert_pdf2docx\src\main\java\Model\BEAN\User.java
+D:\java_project\convert_pdf2docx\src\main\java\Controller\HomeController.java
 D:\java_project\convert_pdf2docx\src\main\java\Model\BO\CombineDocx.java
 D:\java_project\convert_pdf2docx\src\main\java\Controller\LogoutController.java
 D:\java_project\convert_pdf2docx\src\main\java\Controller\updateFullnameController.java

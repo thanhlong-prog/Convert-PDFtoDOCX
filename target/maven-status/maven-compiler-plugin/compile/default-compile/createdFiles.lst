@@ -8,6 +8,7 @@ Model\DAO\ConvertJobDAO.class
 Controller\LogoutController.class
 Controller\ConvertJobController.class
 Utils\Utils.class
+Controller\HomeController.class
 Model\DAO\DB.class
 Controller\updateFullnameController.class
 Model\BO\CombineDocx.class
