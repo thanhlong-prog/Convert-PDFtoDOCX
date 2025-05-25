@@ -7,11 +7,35 @@
 
 <head>
     <title>Thông tin cá nhân</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="./css/profile.css">
     <link rel="stylesheet" href="./css/styles.css">
+    <link rel="stylesheet" href="./css/header.css">
 </head>
 
 <body>
+    <div class="header">
+        <div class="header-home">
+            <i class='bx  bx-home'></i>
+            <a href="/home">
+                <span>Trang chủ</span>
+            </a>
+        </div>
+        <div class="profile">
+            <div class="user" onclick="toggleDropdown()">
+                <i class='bx bx-user'></i>
+                <span class="full-name">Shiro</span>
+            </div>
+            <div class="dropdown">
+                <div class="dropdown-content">
+                    <a href="profile">Trang cá nhân</a>
+                    <a href="listJobs">Danh sách file</a>
+                    <a href="password">Đổi mật khẩu</a>
+                    <a href="logout">Đăng xuất</a>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="w-page">
         <div class="page-info">
             <h2>Thông tin cá nhân</h2>
@@ -53,6 +77,7 @@
         </div>
     </div>
     <script src="./js/scripts.js"></script>
+    <script src="./js/header.js"></script>
 </body>
 
 </html>

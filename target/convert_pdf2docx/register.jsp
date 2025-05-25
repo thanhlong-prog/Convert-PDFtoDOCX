@@ -22,7 +22,7 @@ uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
       .toggle-password {
         position: absolute;
-        top: 50%;
+        top: 40%;
         right: 10px;
         transform: translateY(-50%);
         cursor: pointer;

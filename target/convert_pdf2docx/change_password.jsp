@@ -12,6 +12,7 @@
 <head>
     <title>Đổi mật khẩu</title>
     <link rel="stylesheet" href="./css/login.css">
+    <link rel="stylesheet" href="./css/header.css">
 </head>
 <body>
     <c:if test="${not empty error}">

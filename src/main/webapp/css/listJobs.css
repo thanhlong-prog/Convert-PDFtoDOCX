@@ -1,4 +1,4 @@
-body {
+.page-list-content{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #f0f2f5;
     display: flex;
@@ -10,13 +10,13 @@ body {
     padding: 40px 20px;
 }
 
-h2 {
+.page-list-content h2 {
     color: #333;
     margin-bottom: 30px;
     text-align: center;
 }
 
-table {
+.page-list-content table {
     width: 100%;
     max-width: 900px;
     border-collapse: collapse;
@@ -27,61 +27,61 @@ table {
     font-size: 15px;
 }
 
-thead {
+.page-list-content thead {
     background-color: #3498db;
     color: white;
     text-align: left;
 }
 
-th, td {
+.page-list-content th, td {
     padding: 12px 16px;
     border-bottom: 1px solid #eee;
 }
 
-tbody tr:hover {
+.page-list-content tbody tr:hover {
     background-color: #f2f2f2;
 }
 
-a {
+.page-list-content a {
     color: #3498db;
     text-decoration: none;
     font-weight: bold;
 }
 
-a:hover {
+.page-list-content a:hover {
     text-decoration: underline;
 }
 
-i {
+.page-list-content i {
     color: #999;
 }
 
-p {
+.page-list-content p {
     margin-top: 20px;
     text-align: center;
     font-size: 14px;
 }
 
-p a {
+.page-list-content p a {
     color: #3498db;
     text-decoration: none;
 }
 
-p a:hover {
+.page-list-content p a:hover {
     text-decoration: underline;
 }
 
-.status-completed {
+.page-list-content .status-completed {
     color: green;
     font-weight: bold;
 }
 
-.status-failed {
+.page-list-content .status-failed {
     color: red;
     font-weight: bold;
 }
 
-.status-pending {
+.page-list-content .status-pending {
     color: orange;
     font-weight: bold;
 }

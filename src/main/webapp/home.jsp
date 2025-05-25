@@ -25,7 +25,7 @@
     <div class="header">
         <div class="header-home">
             <i class='bx  bx-home'></i>
-            <a href="/home.jsp">
+            <a href="/home">
                 <span>Trang chủ</span>
             </a>
         </div>
@@ -36,10 +36,10 @@
             </div>
             <div class="dropdown">
                 <div class="dropdown-content">
-                    <a href="#">Trang cá nhân</a>
-                    <a href="/listJobs.jsp">Danh sách file</a>
-                    <a href="/changePassword.jsp">Đổi mật khẩu</a>
-                    <a href="/logout">Đăng xuất</a>
+                    <a href="profile">Trang cá nhân</a>
+                    <a href="listJobs">Danh sách file</a>
+                    <a href="password">Đổi mật khẩu</a>
+                    <a href="logout">Đăng xuất</a>
                 </div>
             </div>
         </div>
@@ -72,6 +72,9 @@
             <p><a href="listJobs">Xem danh sách file đã chuyển đổi</a></p>
         </div>
     </div>
+    <form action="logout" method="post">
+        <button type="submit">Đăng xuất</button>
+    </form>
     <script src="./js/header.js"></script>
     <script src="./js/home.js"></script>
 </body>
