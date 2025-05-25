@@ -1,13 +1,16 @@
+C:\LTM-CK\Convert-PDFtoDOCX\src\main\java\Controller\HomeController.java
 C:\LTM-CK\Convert-PDFtoDOCX\src\main\java\Model\BEAN\UserSessionInfo.java
 C:\LTM-CK\Convert-PDFtoDOCX\src\main\java\Utils\Utils.java
 C:\LTM-CK\Convert-PDFtoDOCX\src\main\java\Model\BO\UserBO.java
 C:\LTM-CK\Convert-PDFtoDOCX\src\main\java\Model\DAO\DB.java
 C:\LTM-CK\Convert-PDFtoDOCX\src\main\java\Model\DAO\ConvertJobDAO.java
 C:\LTM-CK\Convert-PDFtoDOCX\src\main\java\Controller\RegisterController.java
+C:\LTM-CK\Convert-PDFtoDOCX\src\main\java\Controller\updateFullnameController.java
 C:\LTM-CK\Convert-PDFtoDOCX\src\main\java\Model\DAO\UserDAO.java
 C:\LTM-CK\Convert-PDFtoDOCX\src\main\java\Model\BO\CombineDocx.java
 C:\LTM-CK\Convert-PDFtoDOCX\src\main\java\Model\BEAN\ConvertJob.java
 C:\LTM-CK\Convert-PDFtoDOCX\src\main\java\Controller\LoginController.java
+C:\LTM-CK\Convert-PDFtoDOCX\src\main\java\Controller\passwordController.java
 C:\LTM-CK\Convert-PDFtoDOCX\src\main\java\Model\BO\ConvertJobBO.java
 C:\LTM-CK\Convert-PDFtoDOCX\src\main\java\Controller\ConvertJobController.java
 C:\LTM-CK\Convert-PDFtoDOCX\src\main\java\Server\ConvertServer.java

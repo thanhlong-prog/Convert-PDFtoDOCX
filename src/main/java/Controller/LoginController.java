@@ -15,7 +15,7 @@ import Model.BO.UserBO;
 
 @WebServlet("/login")
 public class LoginController extends HttpServlet{
-    private UserBO userBO = new UserBO();
+    private final UserBO userBO = new UserBO();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -33,7 +33,7 @@ public class LoginController extends HttpServlet{
             HttpSession session = req.getSession();
             UserSessionInfo userSessionInfo = new UserSessionInfo(user.getId(), user.getUsername(), user.getFullname());
             session.setAttribute("user", userSessionInfo);
-            resp.sendRedirect("home.jsp");
+            resp.sendRedirect("home");
         } else {
             req.setAttribute("error", "Tên đăng nhập hoặc mật khẩu không đúng.");
             req.getRequestDispatcher("login.jsp").forward(req, resp);

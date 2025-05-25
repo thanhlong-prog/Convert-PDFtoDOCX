@@ -70,3 +70,18 @@ p a {
 p a:hover {
     text-decoration: underline;
 }
+
+.status-completed {
+    color: green;
+    font-weight: bold;
+}
+
+.status-failed {
+    color: red;
+    font-weight: bold;
+}
+
+.status-pending {
+    color: orange;
+    font-weight: bold;
+}

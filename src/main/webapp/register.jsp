@@ -35,8 +35,6 @@
             <label for="confirmPassword">Nhập lại mật khẩu:</label>
             <input type="password" id="confirmPassword" name="confirmPassword" required placeholder="Nhập lại mật khẩu..."/>
         </div>
-
-        
         
         <button type="submit">Đăng ký</button>
         <p>Đã có tài khoản? <a href="login.jsp">Đăng nhập</a></p>

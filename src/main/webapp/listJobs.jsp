@@ -14,7 +14,7 @@ response.sendRedirect("login.jsp"); return; } %>
   <body>
     <h2>
       Danh sách các file đã được chuyển đổi của
-      <c:out value="${user.username}" />
+      <c:out value="${user.fullname}" />
     </h2>
 
     <table border="1" cellpadding="6" cellspacing="0">
@@ -31,10 +31,14 @@ response.sendRedirect("login.jsp"); return; } %>
           <tr>
             <td><c:out value="${loop.index + 1}" /></td>
             <td><c:out value="${job.title}" /></td>
-            <td><c:out value="${job.status}" /></td>
+            <td
+              class="${job.status == 'Hoàn thành' ? 'status-completed' : job.status == 'Thất bại' ? 'status-failed' : 'status-pending'}"
+            >
+              <c:out value="${job.status}" />
+            </td>
             <td>
               <c:choose>
-                <c:when test="${job.status == 'Completed'}">
+                <c:when test="${job.status == 'Hoàn thành'}">
                   <a href="${pageContext.request.contextPath}/${job.docPath}"
                     >Tải xuống</a
                   >
@@ -49,6 +53,6 @@ response.sendRedirect("login.jsp"); return; } %>
       </tbody>
     </table>
 
-    <p><a href="home.jsp">Quay về trang chủ</a></p>
+    <p><a href="home">Quay về trang chủ</a></p>
   </body>
 </html>

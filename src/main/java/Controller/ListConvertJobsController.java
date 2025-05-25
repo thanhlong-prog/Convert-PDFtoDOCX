@@ -16,7 +16,7 @@ import Model.BO.ConvertJobBO;
 
 @WebServlet("/listJobs")
 public class ListConvertJobsController extends HttpServlet {
-    private ConvertJobBO jobBO = new ConvertJobBO();
+    private final ConvertJobBO  jobBO = new ConvertJobBO();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -34,6 +34,13 @@ public class ListConvertJobsController extends HttpServlet {
                 if ("Completed".equals(job.getStatus())) {
                     String encodedPath = URLEncoder.encode(job.getDocPath(), "UTF-8");
                     job.setDocPath("download?path=" + encodedPath);
+                    job.setStatus("Hoàn thành");
+                }
+                if("Failed".equals(job.getStatus())) {
+                    job.setStatus("Thất bại");
+                }
+                if("Pending".equals(job.getStatus())) {
+                    job.setStatus("Đang chờ xử lý");
                 }
             }
             req.setAttribute("jobs", jobs);
