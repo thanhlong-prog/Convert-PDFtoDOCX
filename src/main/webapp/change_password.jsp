@@ -11,14 +11,16 @@
 <html>
 <head>
     <title>Đổi mật khẩu</title>
+    <link rel="stylesheet" href="./css/login.css">
+    <link rel="stylesheet" href="./css/header.css">
 </head>
 <body>
-    <h2>Đổi mật khẩu</h2>
     <c:if test="${not empty error}">
         <p style="color:red">${error}</p>
     </c:if>
 
     <form action="password" method="post">
+        <h2>Đổi mật khẩu</h2>
         <label for="newPassword">Mật khẩu mới:</label>
         <input type="password" id="newPassword" name="newPassword" required/>
         <label for="newPassword">Nhập lại mật khẩu:</label>

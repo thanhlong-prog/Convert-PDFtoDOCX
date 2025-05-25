@@ -20,4 +20,12 @@ public class LogoutController extends HttpServlet{
         }
         resp.sendRedirect("login");
     }
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        HttpSession session = req.getSession(false);
+        if (session != null) {
+            session.invalidate();
+        }
+        resp.sendRedirect("login");
+    }
 }

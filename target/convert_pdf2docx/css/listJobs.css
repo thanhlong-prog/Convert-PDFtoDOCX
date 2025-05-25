@@ -1,0 +1,87 @@
+.page-list-content{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f0f2f5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: 100vh;
+    margin: 0;
+    padding: 40px 20px;
+}
+
+.page-list-content h2 {
+    color: #333;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.page-list-content table {
+    width: 100%;
+    max-width: 900px;
+    border-collapse: collapse;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    border-radius: 8px;
+    overflow: hidden;
+    font-size: 15px;
+}
+
+.page-list-content thead {
+    background-color: #3498db;
+    color: white;
+    text-align: left;
+}
+
+.page-list-content th, td {
+    padding: 12px 16px;
+    border-bottom: 1px solid #eee;
+}
+
+.page-list-content tbody tr:hover {
+    background-color: #f2f2f2;
+}
+
+.page-list-content a {
+    color: #3498db;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.page-list-content a:hover {
+    text-decoration: underline;
+}
+
+.page-list-content i {
+    color: #999;
+}
+
+.page-list-content p {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 14px;
+}
+
+.page-list-content p a {
+    color: #3498db;
+    text-decoration: none;
+}
+
+.page-list-content p a:hover {
+    text-decoration: underline;
+}
+
+.page-list-content .status-completed {
+    color: green;
+    font-weight: bold;
+}
+
+.page-list-content .status-failed {
+    color: red;
+    font-weight: bold;
+}
+
+.page-list-content .status-pending {
+    color: orange;
+    font-weight: bold;
+}

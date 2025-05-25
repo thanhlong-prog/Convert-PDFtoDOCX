@@ -1,0 +1,90 @@
+.page-home{
+    margin-top: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.w-home{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.w-home .title{
+    font-size: 40px;
+    font-weight: 700;
+    margin-bottom: 30px;
+}
+.home{
+    width: 70%;
+    padding: 10px;
+    background-color: rgb(61, 153, 245);
+    border-radius: 10px;
+}
+form{
+    width: 100%;
+    min-height: 300px;
+    background-color: rgb(84, 146, 248);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    border: 1px dashed rgb(255, 255, 255);
+    gap: 10px;
+}
+.form-input{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    position: relative;
+}
+.file-name{
+    position: absolute;
+    left: 170px;
+    width: 200px;
+    color: #ffff;
+}
+.file-upload i{
+    font-size: 24px;
+}
+.file-upload span{
+    font-size: 16px;
+    text-transform:capitalize;
+}
+
+.file-upload {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px;
+    background-color: #fff;
+    color: rgb(0, 0, 0);
+    border-radius: 6px;
+    cursor: pointer;
+    gap: 5px;
+}
+
+.file-upload:hover {
+    background-color: #f2f2f2;
+}
+
+input[type="file"] {
+    display: none;
+}
+.btn-submit{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 7px 20px;
+    background-color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.btn-submit i{
+    font-size: 22px;
+}
