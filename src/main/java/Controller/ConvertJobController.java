@@ -51,20 +51,7 @@ public class ConvertJobController extends HttpServlet {
                 dos.write(buffer, 0, read);
             }
             dos.flush();
-
-            int jobId = dis.readInt();
-
-            String status = dis.readUTF();
-            if ("SUCCESS".equals(status)) {
-                String docPath = dis.readUTF();
-                String encodedPath = URLEncoder.encode(docPath, "UTF-8");
-                req.setAttribute("message", "Chuyển đổi thành công!");
-                req.setAttribute("downloadLink", "download?path=" + encodedPath);
-            } else {
-                req.setAttribute("message", "Chuyển đổi thất bại!");
-            }
-            req.getRequestDispatcher("home.jsp").forward(req, resp);
-
+            resp.sendRedirect("listJobs");
         } catch (Exception e) {
             req.setAttribute("message", "Server đang lỏ. Vui lòng thử lại sau!");
             req.getRequestDispatcher("home.jsp").forward(req, resp);

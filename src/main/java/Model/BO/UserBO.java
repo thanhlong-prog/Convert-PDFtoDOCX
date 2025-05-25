@@ -18,4 +18,8 @@ public class UserBO {
         }
         return null;
     }
+
+    public User getUserById(int id) {
+        return UserDAO.findById(id);
+    }
 }

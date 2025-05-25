@@ -24,4 +24,8 @@ public class ConvertJobBO {
     public ConvertJob getJobById(int jobId) throws Exception {
         return dao.getJobById(jobId);
     }
+
+    public boolean updatePdfPath(int jobId, String newPath) throws Exception {
+        return dao.updatePdfPath(jobId, newPath);
+    }
 }

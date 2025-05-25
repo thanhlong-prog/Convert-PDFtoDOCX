@@ -63,28 +63,35 @@ public class ConvertServer {
 
             ConvertJob job = new ConvertJob();
             job.setUserId(userId);
+            job.setTitle(fileName);
             job.setPdfPath(pdfFile.getAbsolutePath());
             job.setStatus("Pending");
             int jobId = jobBO.addJob(job);
 
-            dos.writeInt(jobId);
-            dos.flush();
+            // dos.writeInt(jobId);
+            // dos.flush();
+
+            String newFileName = fileName.replaceAll("(?i)\\.pdf$", "") + "_" + jobId + ".pdf";
+            File renamedPdfFile = new File(userDir, newFileName);
+            boolean renamed = pdfFile.renameTo(renamedPdfFile);
+            if (!renamed) {
+                System.err.println("Can not rename file PDF!");
+            }
+            job.setPdfPath(renamedPdfFile.getAbsolutePath());
+            jobBO.updatePdfPath(jobId, renamedPdfFile.getAbsolutePath());
+            pdfFile = new File(userDir, newFileName);
 
             try {
                 PdfConvertionHelper.convertPdfToDoc(pdfFile.getAbsolutePath());
                 String docPath = pdfFile.getAbsolutePath().replace(".pdf", ".docx");
 
                 jobBO.updateJobStatus(jobId, "Completed", docPath);
-                dos.writeUTF("SUCCESS");
-                dos.writeUTF(docPath);
-                dos.flush();
 
                 System.out.println("Job id=" + jobId + " completed.");
             } catch (Exception e) {
                 jobBO.updateJobStatus(jobId, "Failed", null);
                 System.out.println("Job id=" + jobId + " failed.");
-                dos.writeUTF("FAILED");
-                e.printStackTrace();
+
             }
 
         } catch (Exception e) {

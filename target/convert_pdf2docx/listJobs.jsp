@@ -34,7 +34,7 @@
     <c:forEach var="job" items="${jobs}">
         <tr>
             <td><c:out value="${job.id}"/></td>
-            <td><c:out value="${job.pdfPath}"/></td>
+            <td><c:out value="${job.title}"/></td>
             <td><c:out value="${job.status}"/></td>
             <td>
                 <c:choose>

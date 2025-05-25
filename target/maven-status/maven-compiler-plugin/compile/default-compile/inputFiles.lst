@@ -12,6 +12,7 @@ C:\LTM-CK\Convert-PDFtoDOCX\src\main\java\Model\BO\ConvertJobBO.java
 C:\LTM-CK\Convert-PDFtoDOCX\src\main\java\Controller\ConvertJobController.java
 C:\LTM-CK\Convert-PDFtoDOCX\src\main\java\Server\ConvertServer.java
 C:\LTM-CK\Convert-PDFtoDOCX\src\main\java\Model\BO\PdfConvertionHelper.java
+C:\LTM-CK\Convert-PDFtoDOCX\src\main\java\Controller\UserController.java
 C:\LTM-CK\Convert-PDFtoDOCX\src\main\java\Controller\ListConvertJobsController.java
 C:\LTM-CK\Convert-PDFtoDOCX\src\main\java\Controller\LogoutController.java
 C:\LTM-CK\Convert-PDFtoDOCX\src\main\java\Controller\DownloadController.java
