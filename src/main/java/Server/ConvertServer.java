@@ -26,6 +26,7 @@ public class ConvertServer {
 
             while (true) {
                 Socket clientSocket = serverSocket.accept();
+                System.out.println("Client connected from IP: " + clientSocket.getInetAddress().getHostAddress());
                 new Thread(() -> handleClient(clientSocket)).start();
             }
 

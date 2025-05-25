@@ -15,10 +15,10 @@ import Model.BO.UserBO;
 public class passwordController extends HttpServlet{
     UserBO userBO = new UserBO();
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         UserSessionInfo user = (UserSessionInfo) req.getSession().getAttribute("user");
         if (user == null) {
-            res.sendRedirect("login.jsp");
+            resp.sendRedirect("login.jsp");
             return;
         }
         // String newPassword = req.getParameter("newPassword");
@@ -27,13 +27,13 @@ public class passwordController extends HttpServlet{
         // } else {
         //     req.setAttribute("error", "Cập nhật mật khẩu không thành công. Vui lòng thử lại.");
         // }
-        req.getRequestDispatcher("change_password.jsp").forward(req, res);
+        req.getRequestDispatcher("change_password.jsp").forward(req, resp);
     }
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         UserSessionInfo user = (UserSessionInfo) req.getSession().getAttribute("user");
         if (user == null) {
-            res.sendRedirect("login.jsp");
+            resp.sendRedirect("login.jsp");
             return;
         }
 
@@ -41,19 +41,19 @@ public class passwordController extends HttpServlet{
         String confirmPassword = req.getParameter("reTypePassword");
         if (newPassword == null || newPassword.trim().isEmpty()) {
             req.setAttribute("error", "Mật khẩu mới không được để trống.");
-            req.getRequestDispatcher("change_password.jsp").forward(req, res);
+            req.getRequestDispatcher("change_password.jsp").forward(req, resp);
             return;
         }
 
         if (confirmPassword == null || confirmPassword.trim().isEmpty()) {
             req.setAttribute("error", "Xác nhận mật khẩu không được để trống.");
-            req.getRequestDispatcher("change_password.jsp").forward(req, res);
+            req.getRequestDispatcher("change_password.jsp").forward(req, resp);
             return;
         }
 
         if (!newPassword.equals(confirmPassword)) {
             req.setAttribute("error", "Mật khẩu xác nhận không khớp.");
-            req.getRequestDispatcher("change_password.jsp").forward(req, res);
+            req.getRequestDispatcher("change_password.jsp").forward(req, resp);
             return;
         }
 
@@ -64,6 +64,6 @@ public class passwordController extends HttpServlet{
             req.setAttribute("error", "Cập nhật mật khẩu không thành công. Vui lòng thử lại.");
         }
 
-        req.getRequestDispatcher("profile.jsp").forward(req, res);
+        req.getRequestDispatcher("profile.jsp").forward(req, resp);
     }
 }

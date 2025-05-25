@@ -15,18 +15,18 @@ import Model.BO.UserBO;
 public class updateFullnameController extends HttpServlet{
     UserBO userBO = new UserBO();
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.setCharacterEncoding("UTF-8");
         UserSessionInfo user = (UserSessionInfo) req.getSession().getAttribute("user");
         if (user == null) {
-            res.sendRedirect("login.jsp");
+            resp.sendRedirect("login.jsp");
             return;
         }
 
         String newFullname = req.getParameter("newFullname");
         if (newFullname == null || newFullname.trim().isEmpty()) {
             req.setAttribute("error", "Tên mới không được để trống.");
-            req.getRequestDispatcher("profile.jsp").forward(req, res);
+            req.getRequestDispatcher("profile.jsp").forward(req, resp);
             return;
         }
 
@@ -38,6 +38,6 @@ public class updateFullnameController extends HttpServlet{
         } else {
             req.setAttribute("error", "Cập nhật tên không thành công.");
         }
-        req.getRequestDispatcher("profile.jsp").forward(req, res);
+        req.getRequestDispatcher("profile.jsp").forward(req, resp);
     }
 }
