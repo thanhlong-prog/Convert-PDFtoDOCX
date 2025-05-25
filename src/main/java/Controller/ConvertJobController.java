@@ -51,7 +51,13 @@ public class ConvertJobController extends HttpServlet {
                 dos.write(buffer, 0, read);
             }
             dos.flush();
-            resp.sendRedirect("listJobs");
+            String status = dis.readUTF(); 
+            if(status.equals("Pending")) {
+                resp.sendRedirect("listJobs");
+            } else {
+                req.setAttribute("message", "Server không hoạt động!");
+                req.getRequestDispatcher("home.jsp").forward(req, resp);
+            }
         } catch (Exception e) {
             req.setAttribute("message", "Server đang lỏ. Vui lòng thử lại sau!");
             req.getRequestDispatcher("home.jsp").forward(req, resp);

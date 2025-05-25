@@ -80,7 +80,9 @@ public class ConvertServer {
             job.setPdfPath(renamedPdfFile.getAbsolutePath());
             jobBO.updatePdfPath(jobId, renamedPdfFile.getAbsolutePath());
             pdfFile = new File(userDir, newFileName);
-
+            String status = "Pending";
+            dos.writeUTF(status);
+            dos.flush();
             try {
                 PdfConvertionHelper.convertPdfToDoc(pdfFile.getAbsolutePath());
                 String docPath = pdfFile.getAbsolutePath().replace(".pdf", ".docx");
