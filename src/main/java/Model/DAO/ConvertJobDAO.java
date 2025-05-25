@@ -7,10 +7,14 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import Model.BEAN.ConvertJob;
 
 public class ConvertJobDAO {
+    private static final Logger logger = Logger.getLogger(ConvertJobDAO.class.getName());
+
     public int insert(ConvertJob job) throws Exception {
         String sql = "INSERT INTO convert_jobs (user_id, pdf_path, doc_path, status, title) VALUES (?, ?, ?, ?, ?)";
         try (Connection conn = DB.getConnection();
@@ -33,7 +37,7 @@ public class ConvertJobDAO {
                 }
             }
         } catch (SQLException e) {
-            e.printStackTrace();
+            logger.log(Level.SEVERE, "Error in Insert convert job Method", e);
         }
         return -1;
     }
@@ -48,7 +52,7 @@ public class ConvertJobDAO {
 
             return stmt.executeUpdate() > 0;
         } catch (SQLException e) {
-            e.printStackTrace();
+            logger.log(Level.SEVERE, "Error in updateStatusAndDocPath Method", e);
         }
         return false;
     }
@@ -71,7 +75,7 @@ public class ConvertJobDAO {
                 list.add(job);
             }
         } catch (SQLException e) {
-            e.printStackTrace();
+            logger.log(Level.SEVERE, "Error in getJobsByUser Method", e);
         }
         return list;
     }
@@ -93,18 +97,18 @@ public class ConvertJobDAO {
                 return job;
             }
         } catch (SQLException e) {
-            e.printStackTrace();
+            logger.log(Level.SEVERE, "Error in getJobById Method", e);
         }
         return null;
     }
 
     public boolean updatePdfPath(int jobId, String newPath) throws Exception {
-    String sql = "UPDATE convert_jobs SET pdf_path = ? WHERE id = ?";
-    try (Connection conn = DB.getConnection();
-         PreparedStatement stmt = conn.prepareStatement(sql)) {
-        stmt.setString(1, newPath);
-        stmt.setInt(2, jobId);
-        return stmt.executeUpdate() > 0;
+        String sql = "UPDATE convert_jobs SET pdf_path = ? WHERE id = ?";
+        try (Connection conn = DB.getConnection();
+                PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setString(1, newPath);
+            stmt.setInt(2, jobId);
+            return stmt.executeUpdate() > 0;
+        }
     }
-}
 }

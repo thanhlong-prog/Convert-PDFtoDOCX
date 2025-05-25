@@ -7,14 +7,18 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import Model.BEAN.ConvertJob;
 import Model.BO.ConvertJobBO;
 import Model.BO.PdfConvertionHelper;
+import Model.DAO.ConvertJobDAO;
 
 public class ConvertServer {
     private static final int PORT = 5555;
-    private ConvertJobBO jobBO = new ConvertJobBO();
+    private final ConvertJobBO jobBO = new ConvertJobBO();
+    private static final Logger logger = Logger.getLogger(ConvertJobDAO.class.getName());
 
     public static void main(String[] args) {
         new ConvertServer().start();
@@ -31,7 +35,7 @@ public class ConvertServer {
             }
 
         } catch (IOException e) {
-            e.printStackTrace();
+            logger.log(Level.SEVERE, "Error in start method", e);
         }
     }
 
@@ -98,7 +102,7 @@ public class ConvertServer {
             }
 
         } catch (Exception e) {
-            e.printStackTrace();
+            logger.log(Level.SEVERE, "Error in handleClient", e);
         } finally {
             try {
                 socket.close();
