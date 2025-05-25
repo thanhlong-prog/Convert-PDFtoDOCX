@@ -27,12 +27,6 @@ public class PdfConvertionHelper {
         CombineDocx.combineFiles(fileDocxPaths, fileOutput);
     }
 
-    /**
-     * Chia file pdf thành các file nhỏ hơn, mỗi file tối đa 10 trang
-     * 
-     * @param filePath đường dẫn file pdf
-     * @return danh sách file pdf nhỏ
-     */
     private static ArrayList<String> splitPdf(String filePath) throws Exception {
         ArrayList<String> pathOfChunkFiles = new ArrayList<>();
         String fileNameWithoutExtension = filePath.replace(".pdf", "").replaceAll(" ", "");
