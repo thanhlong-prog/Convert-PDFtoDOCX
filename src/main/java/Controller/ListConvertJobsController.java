@@ -16,7 +16,7 @@ import Model.BO.ConvertJobBO;
 
 @WebServlet("/listJobs")
 public class ListConvertJobsController extends HttpServlet {
-    private ConvertJobBO jobBO = new ConvertJobBO();
+    private final ConvertJobBO  jobBO = new ConvertJobBO();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

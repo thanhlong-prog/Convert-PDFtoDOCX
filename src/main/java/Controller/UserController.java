@@ -12,12 +12,10 @@ import javax.servlet.http.HttpServletResponse;
 import Model.BEAN.ConvertJob;
 import Model.BEAN.UserSessionInfo;
 import Model.BO.ConvertJobBO;
-import Model.BO.UserBO;
 
 @WebServlet("/profile")
 public class UserController extends HttpServlet {
-    UserBO userBO = new UserBO();
-    ConvertJobBO jobBO = new ConvertJobBO();
+    private final ConvertJobBO jobBO = new ConvertJobBO();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse res)

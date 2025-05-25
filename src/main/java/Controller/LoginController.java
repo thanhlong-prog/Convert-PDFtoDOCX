@@ -15,7 +15,7 @@ import Model.BO.UserBO;
 
 @WebServlet("/login")
 public class LoginController extends HttpServlet{
-    private UserBO userBO = new UserBO();
+    private final UserBO userBO = new UserBO();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

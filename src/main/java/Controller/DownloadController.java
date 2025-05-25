@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 
 @WebServlet("/download")
 public class DownloadController extends HttpServlet {
+    @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         String encodedPath = req.getParameter("path");
         if (encodedPath == null || encodedPath.isEmpty()) {
