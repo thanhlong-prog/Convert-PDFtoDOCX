@@ -10,6 +10,7 @@ Utils\Utils.class
 Model\DAO\DB.class
 Model\BO\CombineDocx.class
 Model\BO\ConvertJobBO.class
+Controller\UserController.class
 Server\ConvertServer.class
 Model\BO\PdfConvertionHelper.class
 Controller\ListConvertJobsController.class

@@ -22,6 +22,21 @@ public class UserDAO {
         return null;
     }
 
+    public static User findById(int id) {
+        try (Connection conn = DB.getConnection()) {
+            PreparedStatement stmt = conn.prepareStatement("SELECT * FROM users WHERE id = ?");
+            stmt.setInt(1, id);
+            ResultSet rs = stmt.executeQuery();
+            if (rs.next()) {
+                return new User(rs.getInt("id"), rs.getString("username"), rs.getString("password"),
+                        rs.getString("fullname"));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
     public static boolean insert(User user) {
         try (Connection conn = DB.getConnection()) {
             PreparedStatement stmt = conn
